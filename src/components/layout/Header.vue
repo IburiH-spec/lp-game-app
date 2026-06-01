@@ -99,14 +99,14 @@ onUnmounted(() => {
 .header__logo {
   font-size: var(--text-xl);
   font-weight: var(--font-bold);
-  color: var(--color-primary);
+  color: #22c55e;
   text-decoration: none;
   letter-spacing: -0.02em;
   flex-shrink: 0;
 }
 
 .header__logo:hover {
-  color: var(--color-primary-dark);
+  color: #16a34a;
   text-decoration: none;
 }
 
@@ -122,7 +122,7 @@ onUnmounted(() => {
 .header__nav-link {
   font-size: var(--text-sm);
   font-weight: var(--font-medium);
-  color: var(--color-text);
+  color: #ffffff;
   text-decoration: none;
   padding-block: var(--space-2);
   white-space: nowrap;
@@ -130,7 +130,7 @@ onUnmounted(() => {
 }
 
 .header__nav-link:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-light);
   text-decoration: none;
 }
 
