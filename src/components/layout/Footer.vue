@@ -1,0 +1,170 @@
+<script setup>
+const navItems = [
+  { label: '特徴', href: '#features' },
+  { label: '使い方', href: '#how-to-use' },
+  { label: 'お客様の声', href: '#testimonials' },
+  { label: 'お問い合わせ', href: '#contact' },
+]
+
+const snsLinks = [
+  {
+    label: 'Twitter',
+    href: 'https://twitter.com/',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    </svg>`,
+  },
+  {
+    label: 'GitHub',
+    href: 'https://github.com/',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+    </svg>`,
+  },
+]
+
+const currentYear = new Date().getFullYear()
+</script>
+
+<template>
+  <footer class="footer">
+    <div class="footer__inner container">
+      <div class="footer__top">
+        <a href="#" class="footer__logo">GameLP</a>
+        <nav aria-label="フッターナビゲーション">
+          <ul class="footer__nav-list">
+            <li v-for="item in navItems" :key="item.href">
+              <a :href="item.href" class="footer__nav-link">{{ item.label }}</a>
+            </li>
+          </ul>
+        </nav>
+        <ul class="footer__sns-list" aria-label="SNSリンク">
+          <li v-for="sns in snsLinks" :key="sns.label">
+            <a
+              :href="sns.href"
+              class="footer__sns-link"
+              :aria-label="sns.label"
+              target="_blank"
+              rel="noopener noreferrer"
+              v-html="sns.icon"
+            ></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; {{ currentYear }} GameLP. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</template>
+
+<style scoped>
+.footer {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+}
+
+.footer__inner {
+  padding-block: var(--space-12) var(--space-8);
+}
+
+.footer__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid rgb(255 255 255 / 0.1);
+  flex-wrap: wrap;
+}
+
+.footer__logo {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--color-text-inverse);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  transition: color var(--transition-fast);
+}
+
+.footer__logo:hover {
+  color: var(--color-primary-light);
+  text-decoration: none;
+}
+
+.footer__nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.footer__nav-link {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.footer__nav-link:hover {
+  color: var(--color-text-inverse);
+  text-decoration: none;
+}
+
+.footer__sns-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__sns-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--color-text-light);
+  border-radius: var(--radius-full);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.footer__sns-link:hover {
+  color: var(--color-text-inverse);
+  background-color: rgb(255 255 255 / 0.1);
+  text-decoration: none;
+}
+
+.footer__bottom {
+  padding-top: var(--space-6);
+  text-align: center;
+}
+
+.footer__copyright {
+  font-size: var(--text-xs);
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .footer__top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-6);
+  }
+
+  .footer__nav-list {
+    justify-content: center;
+  }
+}
+</style>
