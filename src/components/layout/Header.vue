@@ -99,14 +99,14 @@ onUnmounted(() => {
 .header__logo {
   font-size: var(--text-xl);
   font-weight: var(--font-bold);
-  color: #22c55e;
+  color: var(--color-accent);
   text-decoration: none;
   letter-spacing: -0.02em;
   flex-shrink: 0;
 }
 
 .header__logo:hover {
-  color: #16a34a;
+  color: var(--color-accent-dark);
   text-decoration: none;
 }
 
@@ -122,7 +122,7 @@ onUnmounted(() => {
 .header__nav-link {
   font-size: var(--text-sm);
   font-weight: var(--font-medium);
-  color: #ffffff;
+  color: var(--color-text-inverse);
   text-decoration: none;
   padding-block: var(--space-2);
   white-space: nowrap;
@@ -130,8 +130,16 @@ onUnmounted(() => {
 }
 
 .header__nav-link:hover {
-  color: var(--color-primary-light);
+  color: var(--color-accent);
   text-decoration: none;
+}
+
+.header--scrolled .header__nav-link {
+  color: var(--color-text);
+}
+
+.header--scrolled .header__nav-link:hover {
+  color: var(--color-accent);
 }
 
 .header__hamburger {
@@ -217,6 +225,7 @@ onUnmounted(() => {
     display: block;
     padding: var(--space-4) var(--space-6);
     font-size: var(--text-base);
+    color: var(--color-text);
   }
 
   .header__overlay {
