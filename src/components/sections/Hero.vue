@@ -99,14 +99,14 @@
 }
 
 .hero__btn--primary {
-  background-color: var(--color-text-inverse);
-  color: var(--color-primary-dark);
+  background-color: var(--color-accent);
+  color: var(--color-bg-dark);
   box-shadow: var(--shadow-lg);
 }
 
 .hero__btn--primary:hover {
-  background-color: var(--color-bg-alt);
-  color: var(--color-primary-dark);
+  background-color: var(--color-accent-dark);
+  color: var(--color-bg-dark);
   box-shadow: var(--shadow-xl);
 }
 

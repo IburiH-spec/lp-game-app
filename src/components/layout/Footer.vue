@@ -90,7 +90,7 @@ const currentYear = new Date().getFullYear()
 }
 
 .footer__logo:hover {
-  color: var(--color-primary-light);
+  color: var(--color-accent);
   text-decoration: none;
 }
 
