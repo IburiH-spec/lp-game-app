@@ -63,6 +63,46 @@ const reviews = [
     meta: 'カジュアルゲーマー · 利用歴3ヶ月',
     avatarInitial: 'さ',
   },
+  {
+    id: 'user-4',
+    rating: 5,
+    comment: 'RPG系のゲームが充実していて毎日楽しんでいます。ストーリーが深くてやめられない！',
+    name: 'ケンジ@RPG好き',
+    meta: 'RPGプレイヤー · 利用歴2年',
+    avatarInitial: 'ケ',
+  },
+  {
+    id: 'user-5',
+    rating: 5,
+    comment: '女性でも楽しめるゲームが多くて嬉しい。コミュニティも荒れていなくて安心して使えます。',
+    name: 'Hana_Game',
+    meta: 'カジュアルゲーマー · 利用歴6ヶ月',
+    avatarInitial: 'H',
+  },
+  {
+    id: 'user-6',
+    rating: 4,
+    comment: 'ランキング機能が充実していて競い甲斐があります。大会機能があればもっと嬉しい！',
+    name: 'マサキ',
+    meta: '競技プレイヤー · 利用歴1年半',
+    avatarInitial: 'マ',
+  },
+  {
+    id: 'user-7',
+    rating: 5,
+    comment: '友達と一緒に始めました。無料でもかなり楽しめるのでコスパ最高です。',
+    name: 'Rio_Player',
+    meta: '学生ゲーマー · 利用歴4ヶ月',
+    avatarInitial: 'R',
+  },
+  {
+    id: 'user-8',
+    rating: 5,
+    comment: '60代でも楽しめます！操作がシンプルで覚えやすく、サポートも丁寧で安心です。',
+    name: 'トシ@シニアゲーマー',
+    meta: 'シニアゲーマー · 利用歴2年半',
+    avatarInitial: 'ト',
+  },
 ]
 </script>
 
@@ -96,18 +136,18 @@ const reviews = [
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
 }
 
 .testimonials__card {
   background-color: var(--color-bg);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-2xl);
-  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: var(--space-3);
   transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
@@ -122,13 +162,13 @@ const reviews = [
 }
 
 .testimonials__star {
-  font-size: var(--text-xl);
+  font-size: var(--text-base);
   color: var(--color-border-dark);
   line-height: 1;
 }
 
 .testimonials__star--filled {
-  color: var(--color-warning);
+  color: var(--color-accent);
 }
 
 .testimonials__comment {
@@ -137,20 +177,20 @@ const reviews = [
 }
 
 .testimonials__comment p {
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   color: var(--color-text);
   line-height: var(--leading-relaxed);
   position: relative;
-  padding-left: var(--space-5);
+  padding-left: var(--space-4);
 }
 
 .testimonials__comment p::before {
   content: '"';
   position: absolute;
   left: 0;
-  top: -4px;
-  font-size: var(--text-3xl);
-  color: var(--color-primary-light);
+  top: -2px;
+  font-size: var(--text-2xl);
+  color: var(--color-accent);
   font-family: Georgia, serif;
   line-height: 1;
 }
@@ -158,18 +198,18 @@ const reviews = [
 .testimonials__user {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  padding-top: var(--space-4);
+  gap: var(--space-2);
+  padding-top: var(--space-3);
   border-top: 1px solid var(--color-border);
 }
 
 .testimonials__avatar {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-full);
   background-color: var(--color-primary);
   color: var(--color-text-inverse);
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   font-weight: var(--font-bold);
   display: flex;
   align-items: center;
@@ -185,7 +225,7 @@ const reviews = [
 }
 
 .testimonials__user-name {
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
   font-weight: var(--font-semibold);
   color: var(--color-text);
   white-space: nowrap;
@@ -198,32 +238,19 @@ const reviews = [
   color: var(--color-text-muted);
 }
 
-@media (max-width: 1024px) {
-  .testimonials__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  /* 3枚目は中央寄せ */
-  .testimonials__card:last-child:nth-child(2n + 1) {
-    grid-column: 1 / -1;
-    max-width: 480px;
-    justify-self: center;
-  }
-}
-
 @media (max-width: 768px) {
   .testimonials__title {
     font-size: var(--text-3xl);
   }
 
   .testimonials__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .testimonials__card:last-child:nth-child(2n + 1) {
-    grid-column: auto;
-    max-width: none;
-    justify-self: auto;
+@media (max-width: 480px) {
+  .testimonials__grid {
+    grid-template-columns: 1fr;
   }
 }
 </style>
