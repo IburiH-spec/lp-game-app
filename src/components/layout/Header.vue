@@ -188,6 +188,15 @@ onUnmounted(() => {
     display: flex;
   }
 
+  /* 透明ヘッダー上（ダーク背景）では白ラインで視認性を確保 */
+  .header__hamburger-line {
+    background-color: var(--color-text-inverse);
+  }
+
+  .header--scrolled .header__hamburger-line {
+    background-color: var(--color-text);
+  }
+
   .header__nav {
     position: fixed;
     top: 64px;

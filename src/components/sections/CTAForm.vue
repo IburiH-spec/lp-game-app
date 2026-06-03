@@ -3,7 +3,7 @@
     <div class="cta-form__inner container">
       <div class="cta-form__header">
         <h2 class="cta-form__title">今すぐ始めよう</h2>
-        <p class="cta-form__lead">無料で登録して、ゲームの世界へ飛び込もう</p>
+        <p class="cta-form__lead">無料で登録して、<br>ゲームの世界へ飛び込もう</p>
       </div>
 
       <div v-if="submitted" class="cta-form__success" role="alert">

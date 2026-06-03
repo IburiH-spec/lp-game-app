@@ -164,7 +164,9 @@ const currentYear = new Date().getFullYear()
   }
 
   .footer__nav-list {
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
   }
 }
 </style>
