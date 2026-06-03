@@ -5,6 +5,7 @@ import Hero from './components/sections/Hero.vue'
 import Features from './components/sections/Features.vue'
 import HowItWorks from './components/sections/HowItWorks.vue'
 import Testimonials from './components/sections/Testimonials.vue'
+import CTAForm from './components/sections/CTAForm.vue'
 </script>
 
 <template>
@@ -14,7 +15,7 @@ import Testimonials from './components/sections/Testimonials.vue'
     <Features />
     <HowItWorks />
     <Testimonials />
-    <!-- セクションはここに追加していく -->
+    <CTAForm />
   </main>
   <Footer />
 </template>
