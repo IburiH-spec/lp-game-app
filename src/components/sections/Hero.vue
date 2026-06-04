@@ -55,6 +55,8 @@
 
 .hero__content {
   max-width: 680px;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .hero__title {
@@ -76,6 +78,7 @@
 .hero__cta {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-4);
   flex-wrap: wrap;
 }
