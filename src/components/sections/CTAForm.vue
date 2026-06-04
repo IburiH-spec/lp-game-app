@@ -60,7 +60,10 @@
           ></textarea>
         </div>
 
-        <button class="cta-form__submit" type="submit">送信する</button>
+        <p v-if="submitError" class="cta-form__submit-error" role="alert">{{ submitError }}</p>
+        <button class="cta-form__submit" type="submit" :disabled="submitting">
+          {{ submitting ? '送信中...' : '送信する' }}
+        </button>
       </form>
     </div>
   </section>
@@ -68,10 +71,14 @@
 
 <script setup>
 import { reactive, ref } from 'vue'
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
+import { db } from '../../firebase'
 
 const form = reactive({ name: '', email: '', message: '' })
 const errors = reactive({ name: '', email: '' })
 const submitted = ref(false)
+const submitting = ref(false)
+const submitError = ref('')
 
 function validate() {
   errors.name = ''
@@ -90,9 +97,25 @@ function validate() {
   return !errors.name && !errors.email
 }
 
-function handleSubmit() {
-  if (validate()) {
+async function handleSubmit() {
+  if (!validate()) return
+
+  submitting.value = true
+  submitError.value = ''
+
+  try {
+    await addDoc(collection(db, 'contacts'), {
+      name: form.name,
+      email: form.email,
+      message: form.message,
+      createdAt: serverTimestamp(),
+    })
     submitted.value = true
+  } catch (error) {
+    console.error('Firestore送信エラー:', error)
+    submitError.value = '送信に失敗しました。もう一度お試しください。'
+  } finally {
+    submitting.value = false
   }
 }
 </script>
@@ -195,6 +218,13 @@ function handleSubmit() {
   margin: 0;
 }
 
+.cta-form__submit-error {
+  font-size: var(--text-sm);
+  color: var(--color-error);
+  margin: 0;
+  text-align: center;
+}
+
 .cta-form__submit {
   font-family: var(--font-sans);
   font-size: var(--text-base);
@@ -209,8 +239,13 @@ function handleSubmit() {
   transition: background-color var(--transition-fast);
 }
 
-.cta-form__submit:hover {
+.cta-form__submit:hover:not(:disabled) {
   background-color: var(--color-accent-dark);
+}
+
+.cta-form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .cta-form__submit:focus-visible {
